@@ -32,6 +32,7 @@ var (
 	maxLevel       = flag.Int("maxlevel", 256, "max level of go dependency graph")
 	printJson      = flag.Bool("jsontree", false, "print tree of packages as JSON")
 	path           = flag.String("path", "", "path to go into") // TODO: better explanation
+	noEdges        = flag.Bool("no-edges", false, "remove edges")
 
 	buildTags    []string
 	buildContext = build.Default
@@ -114,6 +115,7 @@ func main() {
 	} else {
 		g := graphtree.MakeGraph(pkgTree, graphtree.GraphvizOpts{
 			Horizontal: true,
+			NoEdges:    *noEdges,
 		})
 		fmt.Println(g.String())
 	}

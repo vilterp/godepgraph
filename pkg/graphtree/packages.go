@@ -32,7 +32,7 @@ func NewBuilder(opts Opts) *Builder {
 	}
 }
 
-// TODO: somthing is wrong here
+// TODO: something is wrong here
 //   returning imports for treenodes that have no imports
 func (b *Builder) importsForPkg(pkg *build.Package) []string {
 	if pkg == nil {

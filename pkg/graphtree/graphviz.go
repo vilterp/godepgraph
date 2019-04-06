@@ -9,6 +9,7 @@ import (
 
 type GraphvizOpts struct {
 	Horizontal bool
+	NoEdges    bool
 }
 
 type NodesByName map[string]dot.Node
@@ -60,8 +61,6 @@ func colorForDepth(depth byte, maxDepth byte) color {
 }
 
 func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
-	edges := tree.getEdges("")
-
 	g := dot.NewGraph(dot.Directed)
 	if opts.Horizontal {
 		g.Attr("rankdir", "LR")
@@ -82,6 +81,11 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 	//	fmt.Println(n)
 	//}
 
+	if opts.NoEdges {
+		return g
+	}
+
+	edges := tree.getEdges("")
 	for _, edge := range edges {
 		if strings.HasPrefix(edge.from, "root") {
 			panic("from already has root prefix")
