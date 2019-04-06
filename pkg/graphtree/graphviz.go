@@ -20,14 +20,40 @@ func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName, 
 	} else {
 		sg = g
 	}
-	if depth == 2 {
-		g.Attr("style", "filled")
-		g.Attr("color", "lightgrey") // TODO: darker as more deeply nested?
-	}
+	g.Attr("style", "filled")
+	g.Attr("color", colorForDepth(byte(depth), 255)) // TODO: darker as more deeply nested?
 	outNode := sg.Node(path).Box()
 	nodesByName[path] = outNode
 	for _, child := range node.Children {
 		addNode(sg, path+"/"+child.Name, child, nodesByName, depth+1)
+	}
+}
+
+type color struct {
+	r byte
+	g byte
+	b byte
+	a byte
+}
+
+// uugggghhhh
+func hexFmt(b byte) string {
+	if b < 16 {
+		return fmt.Sprintf("0%x", b)
+	}
+	return fmt.Sprintf("%x", b)
+}
+
+func (c color) String() string {
+	return fmt.Sprintf("#%s%s%s%s", hexFmt(c.r), hexFmt(c.g), hexFmt(c.b), hexFmt(c.a))
+}
+
+func colorForDepth(depth byte, maxDepth byte) color {
+	return color{
+		r: 0,
+		g: 0,
+		b: 0,
+		a: depth * 10,
 	}
 }
 
