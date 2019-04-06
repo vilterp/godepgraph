@@ -95,11 +95,13 @@ func main() {
 
 	pkgTree := b.GetTree()
 	if *printJson {
-		bytes, err := json.MarshalIndent(pkgTree, "", "  ")
+		_, err := json.MarshalIndent(pkgTree, "", "  ")
 		if err != nil {
 			log.Fatal(err)
 		}
-		log.Fatal(os.Stdout.Write(bytes))
+		//if _, err := os.Stdout.Write(bytes); err != nil {
+		//	log.Fatal(err)
+		//}
 	} else {
 		g := graphtree.MakeGraph(pkgTree, graphtree.GraphvizOpts{
 			Horizontal: true,

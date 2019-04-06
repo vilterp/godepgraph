@@ -1,6 +1,9 @@
 package graphtree
 
 import (
+	"fmt"
+	"strings"
+
 	"github.com/emicklei/dot"
 )
 
@@ -20,7 +23,7 @@ func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName) 
 }
 
 func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
-	edges := tree.getEdges(tree.Name)
+	edges := tree.getEdges("")
 
 	g := dot.NewGraph(dot.Directed)
 	if opts.Horizontal {
@@ -31,10 +34,33 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 	g.Attr("ranksep", "0.8")
 
 	nodesByName := map[string]dot.Node{}
-	addNode(g, tree.Name, tree, nodesByName)
+	addNode(g, "", tree, nodesByName)
+
+	//var nbn []string
+	//for n := range nodesByName {
+	//	nbn = append(nbn, n)
+	//}
+	//sort.Strings(nbn)
+	//for _, n := range nbn {
+	//	fmt.Println(n)
+	//}
 
 	for _, edge := range edges {
-		g.Edge(nodesByName[edge.from], nodesByName[edge.to])
+		if strings.HasPrefix(edge.from, "root") {
+			panic("from already has root prefix")
+		}
+		from, ok := nodesByName[edge.from]
+		if !ok {
+			panic(fmt.Sprintf("can't find from node %s", edge.from))
+		}
+		if strings.HasPrefix(edge.to, "root") {
+			panic("to already has root prefix")
+		}
+		to, ok := nodesByName[edge.to]
+		if !ok {
+			panic(fmt.Sprintf("can't find to node %s", edge.to))
+		}
+		g.Edge(from, to)
 	}
 
 	//node [shape="box",style="rounded,filled"]

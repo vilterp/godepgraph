@@ -16,11 +16,23 @@ func (b *Builder) GetTree() *PkgNode {
 	return root
 }
 
+func (n *PkgNode) size() int {
+	ret := 1
+	for _, c := range n.Children {
+		ret += c.size()
+	}
+	return ret
+}
+
 func (n *PkgNode) insertAtPath(b *Builder, path []string, pkg *build.Package) {
 	if len(path) == 0 {
 		return
 	}
 	if len(path) == 1 {
+		if n.Children[path[0]] != nil {
+			n.Children[path[0]].Imports = b.importsForPkg(pkg)
+			return
+		}
 		n.Children[path[0]] = &PkgNode{
 			Name:     path[0],
 			Imports:  b.importsForPkg(pkg),
