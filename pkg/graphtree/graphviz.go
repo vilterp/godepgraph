@@ -13,12 +13,21 @@ type GraphvizOpts struct {
 
 type NodesByName map[string]dot.Node
 
-func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName) {
-	sg := g.Subgraph(path, dot.ClusterOption{})
-	outNode := sg.Node(path)
+func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName, depth int) {
+	var sg *dot.Graph
+	if len(node.Children) > 0 {
+		sg = g.Subgraph(path, dot.ClusterOption{})
+	} else {
+		sg = g
+	}
+	if depth == 2 {
+		g.Attr("style", "filled")
+		g.Attr("color", "lightgrey") // TODO: darker as more deeply nested?
+	}
+	outNode := sg.Node(path).Box()
 	nodesByName[path] = outNode
 	for _, child := range node.Children {
-		addNode(sg, path+"/"+child.Name, child, nodesByName)
+		addNode(sg, path+"/"+child.Name, child, nodesByName, depth+1)
 	}
 }
 
@@ -34,7 +43,7 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 	g.Attr("ranksep", "0.8")
 
 	nodesByName := map[string]dot.Node{}
-	addNode(g, "", tree, nodesByName)
+	addNode(g, "", tree, nodesByName, 0)
 
 	//var nbn []string
 	//for n := range nodesByName {
