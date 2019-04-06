@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+    <script>
+      const treemap = d3.treemap();
+      fetch("./deps.json").then((resp) => resp.json()).then((json) => {
+        console.log("JSON:", json);
+        const renamed = renameStuff(json);
+        console.log(renamed);
+
+        const hierarchy = d3.hierarchy(renamed);
+        console.log(hierarchy);
+
+        const tm = treemap(hierarchy);
+        console.log(tm);
+      });
+
+      function renameStuff(node) {
+        return {
+          name: node.Name,
+          children: Object.values(node.Children).map((node) => (
+            renameStuff(node)
+          )),
+        };
+      }
+    </script>
+  </body>
+</html>

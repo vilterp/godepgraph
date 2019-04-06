@@ -1,0 +1,1786 @@
+{
+  "Name": "root",
+  "Imports": null,
+  "Children": {
+    "github.com": {
+      "Name": "github.com",
+      "Imports": [
+      ],
+      "Children": {
+        "cockroachdb": {
+          "Name": "cockroachdb",
+          "Imports": [
+          ],
+          "Children": {
+            "cockroach": {
+              "Name": "cockroach",
+              "Imports": [
+              ],
+              "Children": {
+                "pkg": {
+                  "Name": "pkg",
+                  "Imports": [
+                    "github.com/cockroachdb/cockroach/pkg/ccl",
+                    "github.com/cockroachdb/cockroach/pkg/ccl/cliccl",
+                    "github.com/cockroachdb/cockroach/pkg/cli",
+                    "github.com/cockroachdb/cockroach/pkg/ui/distccl"
+                  ],
+                  "Children": {
+                    "base": {
+                      "Name": "base",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/build",
+                        "github.com/cockroachdb/cockroach/pkg/cli/cliflags",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/mon",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "build": {
+                      "Name": "build",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/version"
+                      ],
+                      "Children": {}
+                    },
+                    "ccl": {
+                      "Name": "ccl",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/ccl/backupccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/buildccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/changefeedccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/followerreadsccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/gssapiccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/importccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/partitionccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/roleccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/storageccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/utilccl/intervalccl"
+                      ],
+                      "Children": {
+                        "baseccl": {
+                          "Name": "baseccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/cliccl/cliflagsccl",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil"
+                          ],
+                          "Children": {}
+                        },
+                        "buildccl": {
+                          "Name": "buildccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/build"
+                          ],
+                          "Children": {}
+                        },
+                        "changefeedccl": {
+                          "Name": "changefeedccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/backupccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/storageccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl/intervalccl",
+                            "github.com/cockroachdb/cockroach/pkg/gossip",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/jobs",
+                            "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/kv",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlrun",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/row",
+                            "github.com/cockroachdb/cockroach/pkg/sql/rowcontainer",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/storage",
+                            "github.com/cockroachdb/cockroach/pkg/storage/closedts",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/bufalloc",
+                            "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/interval",
+                            "github.com/cockroachdb/cockroach/pkg/util/json",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/mon",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/retry",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing"
+                          ],
+                          "Children": {}
+                        },
+                        "cliccl": {
+                          "Name": "cliccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/ccl/backupccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/baseccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/cliccl/cliflagsccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/storageccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/storageccl/engineccl/enginepbccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/workloadccl/cliccl",
+                            "github.com/cockroachdb/cockroach/pkg/cli",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "followerreadsccl": {
+                          "Name": "followerreadsccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/kv",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan/replicaoracle",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                            "github.com/cockroachdb/cockroach/pkg/storage",
+                            "github.com/cockroachdb/cockroach/pkg/storage/closedts",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "gossipccl": {
+                          "Name": "gossipccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/gossip",
+                            "github.com/cockroachdb/cockroach/pkg/util/log"
+                          ],
+                          "Children": {}
+                        },
+                        "importccl": {
+                          "Name": "importccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/build",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/backupccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/gossipccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/storageccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl",
+                            "github.com/cockroachdb/cockroach/pkg/config",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/jobs",
+                            "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlrun",
+                            "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/row",
+                            "github.com/cockroachdb/cockroach/pkg/sql/rowcontainer",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/transform",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/sql/stats",
+                            "github.com/cockroachdb/cockroach/pkg/storage/bulk",
+                            "github.com/cockroachdb/cockroach/pkg/storage/diskmap",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding/csv",
+                            "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                            "github.com/cockroachdb/cockroach/pkg/workload"
+                          ],
+                          "Children": {}
+                        },
+                        "partitionccl": {
+                          "Name": "partitionccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl/intervalccl",
+                            "github.com/cockroachdb/cockroach/pkg/config",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "roleccl": {
+                          "Name": "roleccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/ccl/utilccl",
+                            "github.com/cockroachdb/cockroach/pkg/security",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase"
+                          ],
+                          "Children": {}
+                        },
+                        "storageccl": {
+                          "Name": "storageccl",
+                          "Imports": null,
+                          "Children": {
+                            "engineccl": {
+                              "Name": "engineccl",
+                              "Imports": null,
+                              "Children": {
+                                "enginepbccl": {
+                                  "Name": "enginepbccl",
+                                  "Imports": null,
+                                  "Children": {}
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "utilccl": {
+                          "Name": "utilccl",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {
+                            "licenseccl": {
+                              "Name": "licenseccl",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                              ],
+                              "Children": {}
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "cli": {
+                      "Name": "cli",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/build",
+                        "github.com/cockroachdb/cockroach/pkg/cli/cliflags",
+                        "github.com/cockroachdb/cockroach/pkg/cli/debug",
+                        "github.com/cockroachdb/cockroach/pkg/cli/syncbench",
+                        "github.com/cockroachdb/cockroach/pkg/cli/systembench",
+                        "github.com/cockroachdb/cockroach/pkg/config",
+                        "github.com/cockroachdb/cockroach/pkg/gossip",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/server",
+                        "github.com/cockroachdb/cockroach/pkg/server/serverpb",
+                        "github.com/cockroachdb/cockroach/pkg/server/status",
+                        "github.com/cockroachdb/cockroach/pkg/server/status/statuspb",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql",
+                        "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                        "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                        "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                        "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                        "github.com/cockroachdb/cockroach/pkg/sqlmigrations",
+                        "github.com/cockroachdb/cockroach/pkg/storage",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                        "github.com/cockroachdb/cockroach/pkg/storage/rditer",
+                        "github.com/cockroachdb/cockroach/pkg/storage/stateloader",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                        "github.com/cockroachdb/cockroach/pkg/ts/tspb",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding/csv",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/flagutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logflags",
+                        "github.com/cockroachdb/cockroach/pkg/util/netutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/randutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/sdnotify",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/sysutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid",
+                        "github.com/cockroachdb/cockroach/pkg/util/version",
+                        "github.com/cockroachdb/cockroach/pkg/workload",
+                        "github.com/cockroachdb/cockroach/pkg/workload/bank",
+                        "github.com/cockroachdb/cockroach/pkg/workload/bulkingest",
+                        "github.com/cockroachdb/cockroach/pkg/workload/cli",
+                        "github.com/cockroachdb/cockroach/pkg/workload/examples",
+                        "github.com/cockroachdb/cockroach/pkg/workload/kv",
+                        "github.com/cockroachdb/cockroach/pkg/workload/tpcc",
+                        "github.com/cockroachdb/cockroach/pkg/workload/ycsb"
+                      ],
+                      "Children": {
+                        "cliflags": {
+                          "Name": "cliflags",
+                          "Imports": null,
+                          "Children": {}
+                        },
+                        "debug": {
+                          "Name": "debug",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil"
+                          ],
+                          "Children": {}
+                        },
+                        "syncbench": {
+                          "Name": "syncbench",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/sysutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "systembench": {
+                          "Name": "systembench",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/cli/systembench/systembenchpb",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/sysutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "cmd": {
+                      "Name": "cmd",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/ccl",
+                        "github.com/cockroachdb/cockroach/pkg/ccl/cliccl",
+                        "github.com/cockroachdb/cockroach/pkg/cli",
+                        "github.com/cockroachdb/cockroach/pkg/ui/distccl"
+                      ],
+                      "Children": {
+                        "cockroach": {
+                          "Name": "cockroach",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/ccl",
+                            "github.com/cockroachdb/cockroach/pkg/ccl/cliccl",
+                            "github.com/cockroachdb/cockroach/pkg/cli",
+                            "github.com/cockroachdb/cockroach/pkg/ui/distccl"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "config": {
+                      "Name": "config",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/cat",
+                        "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                        "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                      ],
+                      "Children": {}
+                    },
+                    "gossip": {
+                      "Name": "gossip",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/config",
+                        "github.com/cockroachdb/cockroach/pkg/gossip/resolver",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "internal": {
+                      "Name": "internal",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                      ],
+                      "Children": {
+                        "client": {
+                          "Name": "client",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/retry",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "jobs": {
+                      "Name": "jobs",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                      ],
+                      "Children": {}
+                    },
+                    "keys": {
+                      "Name": "keys",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "kv": {
+                      "Name": "kv",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/gossip",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/kv/kvbase",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                        "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/util/cache",
+                        "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                        "github.com/cockroachdb/cockroach/pkg/util/duration",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/shuffle",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil/singleflight",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "roachpb": {
+                      "Name": "roachpb",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/bitarray",
+                        "github.com/cockroachdb/cockroach/pkg/util/caller",
+                        "github.com/cockroachdb/cockroach/pkg/util/duration",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/interval",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "rpc": {
+                      "Name": "rpc",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/netutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {}
+                    },
+                    "security": {
+                      "Name": "security",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/sysutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                      ],
+                      "Children": {}
+                    },
+                    "server": {
+                      "Name": "server",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/build",
+                        "github.com/cockroachdb/cockroach/pkg/config",
+                        "github.com/cockroachdb/cockroach/pkg/gossip",
+                        "github.com/cockroachdb/cockroach/pkg/gossip/resolver",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/jobs",
+                        "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/kv",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/server/debug",
+                        "github.com/cockroachdb/cockroach/pkg/server/diagnosticspb",
+                        "github.com/cockroachdb/cockroach/pkg/server/goroutinedumper",
+                        "github.com/cockroachdb/cockroach/pkg/server/heapprofiler",
+                        "github.com/cockroachdb/cockroach/pkg/server/serverpb",
+                        "github.com/cockroachdb/cockroach/pkg/server/status",
+                        "github.com/cockroachdb/cockroach/pkg/server/status/statuspb",
+                        "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlrun",
+                        "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                        "github.com/cockroachdb/cockroach/pkg/sql/pgwire",
+                        "github.com/cockroachdb/cockroach/pkg/sql/querycache",
+                        "github.com/cockroachdb/cockroach/pkg/sql/row",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                        "github.com/cockroachdb/cockroach/pkg/sql/stats",
+                        "github.com/cockroachdb/cockroach/pkg/sqlmigrations",
+                        "github.com/cockroachdb/cockroach/pkg/storage",
+                        "github.com/cockroachdb/cockroach/pkg/storage/bulk",
+                        "github.com/cockroachdb/cockroach/pkg/storage/closedts/container",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                        "github.com/cockroachdb/cockroach/pkg/storage/tscache",
+                        "github.com/cockroachdb/cockroach/pkg/ts",
+                        "github.com/cockroachdb/cockroach/pkg/ui",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/httputil",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/mon",
+                        "github.com/cockroachdb/cockroach/pkg/util/netutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {
+                        "debug": {
+                          "Name": "debug",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/server/debug/goroutineui",
+                            "github.com/cockroachdb/cockroach/pkg/server/debug/pprofui",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/util/caller",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {
+                            "pprofui": {
+                              "Name": "pprofui",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/util/log",
+                                "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                                "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                              ],
+                              "Children": {}
+                            }
+                          }
+                        },
+                        "diagnosticspb": {
+                          "Name": "diagnosticspb",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/build",
+                            "github.com/cockroachdb/cockroach/pkg/config",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "settings": {
+                      "Name": "settings",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                      ],
+                      "Children": {
+                        "cluster": {
+                          "Name": "cluster",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "sql": {
+                      "Name": "sql",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/build",
+                        "github.com/cockroachdb/cockroach/pkg/config",
+                        "github.com/cockroachdb/cockroach/pkg/gossip",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/jobs",
+                        "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/kv",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/server/serverpb",
+                        "github.com/cockroachdb/cockroach/pkg/server/status/statuspb",
+                        "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql/backfill",
+                        "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan/replicaoracle",
+                        "github.com/cockroachdb/cockroach/pkg/sql/distsqlrun",
+                        "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/cat",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/constraint",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/exec",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/exec/execbuilder",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/idxconstraint",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/memo",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/optbuilder",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/props/physical",
+                        "github.com/cockroachdb/cockroach/pkg/sql/opt/xform",
+                        "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                        "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                        "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgwirebase",
+                        "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                        "github.com/cockroachdb/cockroach/pkg/sql/querycache",
+                        "github.com/cockroachdb/cockroach/pkg/sql/row",
+                        "github.com/cockroachdb/cockroach/pkg/sql/rowcontainer",
+                        "github.com/cockroachdb/cockroach/pkg/sql/schemachange",
+                        "github.com/cockroachdb/cockroach/pkg/sql/scrub",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/transform",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqltelemetry",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                        "github.com/cockroachdb/cockroach/pkg/sql/stats",
+                        "github.com/cockroachdb/cockroach/pkg/sql/vtable",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/bitarray",
+                        "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                        "github.com/cockroachdb/cockroach/pkg/util/duration",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/errorutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/fsm",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/interval",
+                        "github.com/cockroachdb/cockroach/pkg/util/json",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/mon",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil/singleflight",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/treeprinter",
+                        "github.com/cockroachdb/cockroach/pkg/util/uint128",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {
+                        "backfill": {
+                          "Name": "backfill",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/sql/row",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/transform",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/log"
+                          ],
+                          "Children": {}
+                        },
+                        "colencoding": {
+                          "Name": "colencoding",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/coldata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding"
+                          ],
+                          "Children": {}
+                        },
+                        "coltypes": {
+                          "Name": "coltypes",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types"
+                          ],
+                          "Children": {}
+                        },
+                        "distsqlpb": {
+                          "Name": "distsqlpb",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "distsqlplan": {
+                          "Name": "distsqlplan",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/gossip",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/kv",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/rpc",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlplan/replicaoracle",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlrun",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "distsqlrun": {
+                          "Name": "distsqlrun",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/gossip",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/jobs",
+                            "github.com/cockroachdb/cockroach/pkg/jobs/jobspb",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/rpc",
+                            "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql/backfill",
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/coldata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types/conv",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/row",
+                            "github.com/cockroachdb/cockroach/pkg/sql/rowcontainer",
+                            "github.com/cockroachdb/cockroach/pkg/sql/scrub",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/builtins",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/transform",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                            "github.com/cockroachdb/cockroach/pkg/sql/stats",
+                            "github.com/cockroachdb/cockroach/pkg/storage/diskmap",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/mon",
+                            "github.com/cockroachdb/cockroach/pkg/util/randutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/stringarena",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "exec": {
+                          "Name": "exec",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/distsqlpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/coldata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types/conv",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase"
+                          ],
+                          "Children": {}
+                        },
+                        "lex": {
+                          "Name": "lex",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/util/stringencoding"
+                          ],
+                          "Children": {}
+                        },
+                        "opt": {
+                          "Name": "opt",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                            "github.com/cockroachdb/cockroach/pkg/sql/opt/cat",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqltelemetry",
+                            "github.com/cockroachdb/cockroach/pkg/util"
+                          ],
+                          "Children": {}
+                        },
+                        "parser": {
+                          "Name": "parser",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata"
+                          ],
+                          "Children": {}
+                        },
+                        "pgwire": {
+                          "Name": "pgwire",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/security",
+                            "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql",
+                            "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/hba",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgwirebase",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqltelemetry",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/ipaddr",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/mon",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing"
+                          ],
+                          "Children": {}
+                        },
+                        "privilege": {
+                          "Name": "privilege",
+                          "Imports": null,
+                          "Children": {}
+                        },
+                        "querycache": {
+                          "Name": "querycache",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/opt/memo",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                          ],
+                          "Children": {}
+                        },
+                        "row": {
+                          "Name": "row",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/sql/colencoding",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/coldata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/exec/types/conv",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                            "github.com/cockroachdb/cockroach/pkg/sql/rowcontainer",
+                            "github.com/cockroachdb/cockroach/pkg/sql/scrub",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/log"
+                          ],
+                          "Children": {}
+                        },
+                        "rowcontainer": {
+                          "Name": "rowcontainer",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/storage/diskmap",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/mon",
+                            "github.com/cockroachdb/cockroach/pkg/util/ring"
+                          ],
+                          "Children": {}
+                        },
+                        "schemachange": {
+                          "Name": "schemachange",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase"
+                          ],
+                          "Children": {}
+                        },
+                        "scrub": {
+                          "Name": "scrub",
+                          "Imports": null,
+                          "Children": {}
+                        },
+                        "sem": {
+                          "Name": "sem",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata"
+                          ],
+                          "Children": {
+                            "builtins": {
+                              "Name": "builtins",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/build",
+                                "github.com/cockroachdb/cockroach/pkg/internal/client",
+                                "github.com/cockroachdb/cockroach/pkg/keys",
+                                "github.com/cockroachdb/cockroach/pkg/roachpb",
+                                "github.com/cockroachdb/cockroach/pkg/security",
+                                "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                                "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                                "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                                "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                                "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                                "github.com/cockroachdb/cockroach/pkg/util/arith",
+                                "github.com/cockroachdb/cockroach/pkg/util/duration",
+                                "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/ipaddr",
+                                "github.com/cockroachdb/cockroach/pkg/util/json",
+                                "github.com/cockroachdb/cockroach/pkg/util/log",
+                                "github.com/cockroachdb/cockroach/pkg/util/mon",
+                                "github.com/cockroachdb/cockroach/pkg/util/ring",
+                                "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                              ],
+                              "Children": {}
+                            },
+                            "transform": {
+                              "Name": "transform",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sessiondata"
+                              ],
+                              "Children": {}
+                            },
+                            "tree": {
+                              "Name": "tree",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/base",
+                                "github.com/cockroachdb/cockroach/pkg/internal/client",
+                                "github.com/cockroachdb/cockroach/pkg/roachpb",
+                                "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                                "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                                "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                                "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                                "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                                "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                                "github.com/cockroachdb/cockroach/pkg/sql/sqltelemetry",
+                                "github.com/cockroachdb/cockroach/pkg/util",
+                                "github.com/cockroachdb/cockroach/pkg/util/arith",
+                                "github.com/cockroachdb/cockroach/pkg/util/bitarray",
+                                "github.com/cockroachdb/cockroach/pkg/util/cache",
+                                "github.com/cockroachdb/cockroach/pkg/util/duration",
+                                "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                                "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                                "github.com/cockroachdb/cockroach/pkg/util/ipaddr",
+                                "github.com/cockroachdb/cockroach/pkg/util/json",
+                                "github.com/cockroachdb/cockroach/pkg/util/mon",
+                                "github.com/cockroachdb/cockroach/pkg/util/pretty",
+                                "github.com/cockroachdb/cockroach/pkg/util/ring",
+                                "github.com/cockroachdb/cockroach/pkg/util/stringencoding",
+                                "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil/pgdate",
+                                "github.com/cockroachdb/cockroach/pkg/util/uint128",
+                                "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                              ],
+                              "Children": {}
+                            },
+                            "types": {
+                              "Name": "types",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror"
+                              ],
+                              "Children": {}
+                            }
+                          }
+                        },
+                        "sessiondata": {
+                          "Name": "sessiondata",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                          ],
+                          "Children": {}
+                        },
+                        "sqlbase": {
+                          "Name": "sqlbase",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/config",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/security",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/opt/cat",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/privilege",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/transform",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/bitarray",
+                            "github.com/cockroachdb/cockroach/pkg/util/duration",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/interval",
+                            "github.com/cockroachdb/cockroach/pkg/util/ipaddr",
+                            "github.com/cockroachdb/cockroach/pkg/util/json",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/randutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeofday",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "sqltelemetry": {
+                          "Name": "sqltelemetry",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/server/telemetry",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/util/log"
+                          ],
+                          "Children": {}
+                        },
+                        "sqlutil": {
+                          "Name": "sqlutil",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase"
+                          ],
+                          "Children": {}
+                        },
+                        "stats": {
+                          "Name": "stats",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/gossip",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/sql/coltypes",
+                            "github.com/cockroachdb/cockroach/pkg/sql/parser",
+                            "github.com/cockroachdb/cockroach/pkg/sql/pgwire/pgerror",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sem/types",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                            "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/cache",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "vtable": {
+                          "Name": "vtable",
+                          "Imports": null,
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "sqlmigrations": {
+                      "Name": "sqlmigrations",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/security",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sessiondata",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlbase",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                      ],
+                      "Children": {}
+                    },
+                    "storage": {
+                      "Name": "storage",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/config",
+                        "github.com/cockroachdb/cockroach/pkg/gossip",
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/kv/kvbase",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/rpc",
+                        "github.com/cockroachdb/cockroach/pkg/rpc/nodedialer",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sqlutil",
+                        "github.com/cockroachdb/cockroach/pkg/storage/abortspan",
+                        "github.com/cockroachdb/cockroach/pkg/storage/batcheval",
+                        "github.com/cockroachdb/cockroach/pkg/storage/batcheval/result",
+                        "github.com/cockroachdb/cockroach/pkg/storage/closedts",
+                        "github.com/cockroachdb/cockroach/pkg/storage/closedts/container",
+                        "github.com/cockroachdb/cockroach/pkg/storage/closedts/ctpb",
+                        "github.com/cockroachdb/cockroach/pkg/storage/closedts/storage",
+                        "github.com/cockroachdb/cockroach/pkg/storage/compactor",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                        "github.com/cockroachdb/cockroach/pkg/storage/idalloc",
+                        "github.com/cockroachdb/cockroach/pkg/storage/intentresolver",
+                        "github.com/cockroachdb/cockroach/pkg/storage/raftentry",
+                        "github.com/cockroachdb/cockroach/pkg/storage/rangefeed",
+                        "github.com/cockroachdb/cockroach/pkg/storage/rditer",
+                        "github.com/cockroachdb/cockroach/pkg/storage/spanlatch",
+                        "github.com/cockroachdb/cockroach/pkg/storage/spanset",
+                        "github.com/cockroachdb/cockroach/pkg/storage/split",
+                        "github.com/cockroachdb/cockroach/pkg/storage/stateloader",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                        "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                        "github.com/cockroachdb/cockroach/pkg/storage/tscache",
+                        "github.com/cockroachdb/cockroach/pkg/storage/txnwait",
+                        "github.com/cockroachdb/cockroach/pkg/util",
+                        "github.com/cockroachdb/cockroach/pkg/util/bufalloc",
+                        "github.com/cockroachdb/cockroach/pkg/util/causer",
+                        "github.com/cockroachdb/cockroach/pkg/util/contextutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/grpcutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/limit",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/mon",
+                        "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/retry",
+                        "github.com/cockroachdb/cockroach/pkg/util/shuffle",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/sysutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                        "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                      ],
+                      "Children": {
+                        "batcheval": {
+                          "Name": "batcheval",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/storage/abortspan",
+                            "github.com/cockroachdb/cockroach/pkg/storage/batcheval/result",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/rditer",
+                            "github.com/cockroachdb/cockroach/pkg/storage/spanset",
+                            "github.com/cockroachdb/cockroach/pkg/storage/stateloader",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/txnwait",
+                            "github.com/cockroachdb/cockroach/pkg/util",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/limit",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                            "github.com/cockroachdb/cockroach/pkg/util/tracing",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {
+                            "result": {
+                              "Name": "result",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/roachpb",
+                                "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                                "github.com/cockroachdb/cockroach/pkg/util/log"
+                              ],
+                              "Children": {}
+                            }
+                          }
+                        },
+                        "bulk": {
+                          "Name": "bulk",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/kv",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagebase",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/humanizeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/log"
+                          ],
+                          "Children": {}
+                        },
+                        "closedts": {
+                          "Name": "closedts",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/storage/closedts/ctpb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc"
+                          ],
+                          "Children": {
+                            "provider": {
+                              "Name": "provider",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/roachpb",
+                                "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                                "github.com/cockroachdb/cockroach/pkg/storage/closedts",
+                                "github.com/cockroachdb/cockroach/pkg/storage/closedts/ctpb",
+                                "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                                "github.com/cockroachdb/cockroach/pkg/util/log",
+                                "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                                "github.com/cockroachdb/cockroach/pkg/util/stop",
+                                "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                              ],
+                              "Children": {}
+                            },
+                            "transport": {
+                              "Name": "transport",
+                              "Imports": [
+                                "github.com/cockroachdb/cockroach/pkg/roachpb",
+                                "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                                "github.com/cockroachdb/cockroach/pkg/storage/closedts",
+                                "github.com/cockroachdb/cockroach/pkg/storage/closedts/ctpb",
+                                "github.com/cockroachdb/cockroach/pkg/util/log",
+                                "github.com/cockroachdb/cockroach/pkg/util/log/logtags",
+                                "github.com/cockroachdb/cockroach/pkg/util/stop",
+                                "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                                "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                              ],
+                              "Children": {}
+                            }
+                          }
+                        },
+                        "idalloc": {
+                          "Name": "idalloc",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/retry",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop"
+                          ],
+                          "Children": {}
+                        },
+                        "raftentry": {
+                          "Name": "raftentry",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                          ],
+                          "Children": {}
+                        },
+                        "rangefeed": {
+                          "Name": "rangefeed",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/bufalloc",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/interval",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/retry",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "rditer": {
+                          "Name": "rditer",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/bufalloc"
+                          ],
+                          "Children": {}
+                        },
+                        "spanlatch": {
+                          "Name": "spanlatch",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/spanset",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "stateloader": {
+                          "Name": "stateloader",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/protoutil"
+                          ],
+                          "Children": {}
+                        },
+                        "storagebase": {
+                          "Name": "storagebase",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/keys",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/settings",
+                            "github.com/cockroachdb/cockroach/pkg/storage/storagepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc"
+                          ],
+                          "Children": {}
+                        },
+                        "storagepb": {
+                          "Name": "storagepb",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "txnwait": {
+                          "Name": "txnwait",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/base",
+                            "github.com/cockroachdb/cockroach/pkg/internal/client",
+                            "github.com/cockroachdb/cockroach/pkg/roachpb",
+                            "github.com/cockroachdb/cockroach/pkg/storage/engine/enginepb",
+                            "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/metric",
+                            "github.com/cockroachdb/cockroach/pkg/util/retry",
+                            "github.com/cockroachdb/cockroach/pkg/util/stop",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "ts": {
+                      "Name": "ts",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/internal/client",
+                        "github.com/cockroachdb/cockroach/pkg/keys",
+                        "github.com/cockroachdb/cockroach/pkg/roachpb",
+                        "github.com/cockroachdb/cockroach/pkg/settings",
+                        "github.com/cockroachdb/cockroach/pkg/settings/cluster",
+                        "github.com/cockroachdb/cockroach/pkg/storage",
+                        "github.com/cockroachdb/cockroach/pkg/storage/engine",
+                        "github.com/cockroachdb/cockroach/pkg/ts/tspb",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding",
+                        "github.com/cockroachdb/cockroach/pkg/util/hlc",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/metric",
+                        "github.com/cockroachdb/cockroach/pkg/util/mon",
+                        "github.com/cockroachdb/cockroach/pkg/util/stop",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                      ],
+                      "Children": {
+                        "tspb": {
+                          "Name": "tspb",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/roachpb"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "ui": {
+                      "Name": "ui",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/base",
+                        "github.com/cockroachdb/cockroach/pkg/build",
+                        "github.com/cockroachdb/cockroach/pkg/util/log"
+                      ],
+                      "Children": {}
+                    },
+                    "util": {
+                      "Name": "util",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/util/syncutil"
+                      ],
+                      "Children": {
+                        "duration": {
+                          "Name": "duration",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/arith"
+                          ],
+                          "Children": {}
+                        },
+                        "flagutil": {
+                          "Name": "flagutil",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "protoutil": {
+                          "Name": "protoutil",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/randutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/uuid"
+                          ],
+                          "Children": {}
+                        },
+                        "ring": {
+                          "Name": "ring",
+                          "Imports": null,
+                          "Children": {}
+                        }
+                      }
+                    },
+                    "workload": {
+                      "Name": "workload",
+                      "Imports": [
+                        "github.com/cockroachdb/cockroach/pkg/sql/lex",
+                        "github.com/cockroachdb/cockroach/pkg/sql/sem/tree",
+                        "github.com/cockroachdb/cockroach/pkg/util/ctxgroup",
+                        "github.com/cockroachdb/cockroach/pkg/util/encoding/csv",
+                        "github.com/cockroachdb/cockroach/pkg/util/log",
+                        "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                        "github.com/cockroachdb/cockroach/pkg/workload/histogram"
+                      ],
+                      "Children": {
+                        "bank": {
+                          "Name": "bank",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/workload",
+                            "github.com/cockroachdb/cockroach/pkg/workload/histogram"
+                          ],
+                          "Children": {}
+                        },
+                        "cli": {
+                          "Name": "cli",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/envutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/log",
+                            "github.com/cockroachdb/cockroach/pkg/util/log/logflags",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/workload",
+                            "github.com/cockroachdb/cockroach/pkg/workload/histogram"
+                          ],
+                          "Children": {}
+                        },
+                        "histogram": {
+                          "Name": "histogram",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil"
+                          ],
+                          "Children": {}
+                        },
+                        "ycsb": {
+                          "Name": "ycsb",
+                          "Imports": [
+                            "github.com/cockroachdb/cockroach/pkg/util/syncutil",
+                            "github.com/cockroachdb/cockroach/pkg/util/timeutil",
+                            "github.com/cockroachdb/cockroach/pkg/workload",
+                            "github.com/cockroachdb/cockroach/pkg/workload/histogram"
+                          ],
+                          "Children": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
