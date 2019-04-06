@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"go/build"
@@ -11,9 +12,6 @@ import (
 )
 
 var (
-	pkgs map[string]*build.Package
-	ids  map[string]string
-
 	ignored = map[string]bool{
 		"C": true,
 	}
@@ -31,6 +29,7 @@ var (
 	horizontal     = flag.Bool("horizontal", false, "lay out the dependency graph horizontally instead of vertically")
 	withTests      = flag.Bool("withtests", false, "include test packages")
 	maxLevel       = flag.Int("maxlevel", 256, "max level of go dependency graph")
+	printJson      = flag.Bool("jsontree", false, "print tree of packages as JSON")
 
 	buildTags    []string
 	buildContext = build.Default
@@ -47,8 +46,6 @@ func init() {
 }
 
 func main() {
-	pkgs = make(map[string]*build.Package)
-	ids = make(map[string]string)
 	flag.Parse()
 
 	args := flag.Args()
@@ -77,12 +74,35 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to get cwd: %s", err)
 	}
+
+	pkgs := map[string]*build.Package{}
+	ids := map[string]string{}
 	for _, a := range args {
-		if err := processPackage(cwd, a, 0, "", *stopOnError); err != nil {
+		if err := processPackage(pkgs, ids, cwd, a, 0, "", *stopOnError); err != nil {
 			log.Fatal(err)
 		}
 	}
 
+	// sort packages
+	pkgKeys := []string{}
+	for k := range pkgs {
+		pkgKeys = append(pkgKeys, k)
+	}
+	sort.Strings(pkgKeys)
+
+	if *printJson {
+		pkgTree := buildPkgTree(pkgs)
+		bytes, err := json.MarshalIndent(pkgTree, "", "  ")
+		if err != nil {
+			log.Fatal(err)
+		}
+		log.Fatal(os.Stdout.Write(bytes))
+	} else {
+		printGraph(pkgs, ids, pkgKeys)
+	}
+}
+
+func printGraph(pkgs map[string]*build.Package, ids map[string]string, pkgKeys []string) {
 	fmt.Println("digraph godep {")
 	if *horizontal {
 		fmt.Println(`rankdir="LR"`)
@@ -94,16 +114,9 @@ node [shape="box",style="rounded,filled"]
 edge [arrowsize="0.5"]
 `)
 
-	// sort packages
-	pkgKeys := []string{}
-	for k := range pkgs {
-		pkgKeys = append(pkgKeys, k)
-	}
-	sort.Strings(pkgKeys)
-
 	for _, pkgName := range pkgKeys {
 		pkg := pkgs[pkgName]
-		pkgId := getId(pkgName)
+		pkgId := getId(ids, pkgName)
 
 		if isIgnored(pkg) {
 			continue
@@ -134,18 +147,92 @@ edge [arrowsize="0.5"]
 				continue
 			}
 
-			impId := getId(imp)
+			impId := getId(ids, imp)
 			fmt.Printf("%s -> %s;\n", pkgId, impId)
 		}
 	}
+
 	fmt.Println("}")
+}
+
+// todo: marshal as json
+type pkgNode struct {
+	Name     string
+	Imports  []string
+	Children map[string]*pkgNode // segment => child node
+}
+
+func buildPkgTree(pkgs map[string]*build.Package) *pkgNode {
+	root := &pkgNode{
+		Name:     "root",
+		Children: map[string]*pkgNode{},
+	}
+	for name, pkg := range pkgs {
+		root.insertAtPath(strings.Split(name, "/"), pkg, pkgs)
+	}
+	return root
+}
+
+func (n *pkgNode) print(pkgs map[string]*build.Package) {
+	n.printTreeHelper(pkgs, 0)
+}
+
+func (n *pkgNode) printTreeHelper(pkgs map[string]*build.Package, level int) {
+	fmt.Printf("%s%s %s\n", strings.Repeat("  ", level), n.Name, n.Imports)
+
+	for _, child := range n.Children {
+		child.printTreeHelper(pkgs, level+1)
+	}
+}
+
+func (n *pkgNode) insertAtPath(path []string, pkg *build.Package, pkgs map[string]*build.Package) {
+	if len(path) == 0 {
+		return
+	}
+	if len(path) == 1 {
+		n.Children[path[0]] = &pkgNode{
+			Name:     path[0],
+			Imports:  importsForPkg(pkg, pkgs),
+			Children: map[string]*pkgNode{},
+		}
+		return
+	}
+	child := n.Children[path[0]]
+	if child == nil {
+		child = &pkgNode{
+			Name:     path[0],
+			Imports:  importsForPkg(pkg, pkgs),
+			Children: map[string]*pkgNode{},
+		}
+		n.Children[path[0]] = child
+	}
+	child.insertAtPath(path[1:], pkg, pkgs)
+}
+
+func importsForPkg(pkg *build.Package, pkgs map[string]*build.Package) []string {
+	if pkg == nil {
+		return nil
+	}
+
+	var out []string
+	for _, imp := range getImports(pkg) {
+		impPkg := pkgs[imp]
+		if impPkg == nil || isIgnored(impPkg) {
+			continue
+		}
+		out = append(out, imp)
+	}
+	return out
 }
 
 func pkgURL(pkgName string) string {
 	return "https://godoc.org/" + pkgName
 }
 
-func processPackage(root string, pkgName string, level int, importedBy string, stopOnError bool) error {
+func processPackage(
+	pkgs map[string]*build.Package, ids map[string]string, root string, pkgName string,
+	level int, importedBy string, stopOnError bool,
+) error {
 	if level++; level > *maxLevel {
 		return nil
 	}
@@ -175,7 +262,7 @@ func processPackage(root string, pkgName string, level int, importedBy string, s
 
 	for _, imp := range getImports(pkg) {
 		if _, ok := pkgs[imp]; !ok {
-			if err := processPackage(pkg.Dir, imp, level, pkgName, stopOnError); err != nil {
+			if err := processPackage(pkgs, ids, pkg.Dir, imp, level, pkgName, stopOnError); err != nil {
 				return err
 			}
 		}
@@ -211,7 +298,7 @@ func deriveNodeID(packageName string) string {
 	return id
 }
 
-func getId(name string) string {
+func getId(ids map[string]string, name string) string {
 	id, ok := ids[name]
 	if !ok {
 		id = deriveNodeID(name)
