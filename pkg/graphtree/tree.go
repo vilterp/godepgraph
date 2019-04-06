@@ -58,6 +58,9 @@ func (n *PkgNode) GetChild(path []string) *PkgNode {
 
 func (n *PkgNode) getChildHelp(path []string, wholePath []string) *PkgNode {
 	if len(path) == 0 {
+		// TODO: these root nodes with imports shouldn't exist...
+		//   solving it here is a hack.
+		n.Imports = nil
 		return n.rewriteImports(strings.Join(wholePath, "/"))
 	}
 	nextChild := n.Children[path[0]]

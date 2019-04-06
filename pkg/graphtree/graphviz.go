@@ -16,14 +16,16 @@ type NodesByName map[string]dot.Node
 func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName, depth int) {
 	var sg *dot.Graph
 	if len(node.Children) > 0 {
-		sg = g.Subgraph(path, dot.ClusterOption{})
+		sg = g.Subgraph(node.Name, dot.ClusterOption{})
 	} else {
 		sg = g
 	}
 	g.Attr("style", "filled")
 	g.Attr("color", colorForDepth(byte(depth), 255)) // TODO: darker as more deeply nested?
-	outNode := sg.Node(path).Box()
-	nodesByName[path] = outNode
+	if depth > 0 {
+		outNode := sg.Node(node.Name).Box()
+		nodesByName[path] = outNode
+	}
 	for _, child := range node.Children {
 		addNode(sg, path+"/"+child.Name, child, nodesByName, depth+1)
 	}
