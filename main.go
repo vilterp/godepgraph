@@ -31,6 +31,7 @@ var (
 	withTests      = flag.Bool("withtests", false, "include test packages")
 	maxLevel       = flag.Int("maxlevel", 256, "max level of go dependency graph")
 	printJson      = flag.Bool("jsontree", false, "print tree of packages as JSON")
+	path           = flag.String("path", "", "path to go into") // TODO: better explanation
 
 	buildTags    []string
 	buildContext = build.Default
@@ -94,6 +95,14 @@ func main() {
 	}
 
 	pkgTree := b.GetTree()
+
+	if len(*path) > 0 {
+		pkgTree = pkgTree.GetChild(strings.Split(*path, "/"))
+		if pkgTree == nil {
+			log.Fatal("error getting child at path")
+		}
+	}
+
 	if *printJson {
 		_, err := json.MarshalIndent(pkgTree, "", "  ")
 		if err != nil {

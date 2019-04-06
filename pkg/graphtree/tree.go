@@ -51,3 +51,32 @@ func (n *PkgNode) insertAtPath(b *Builder, path []string, pkg *build.Package) {
 	}
 	child.insertAtPath(b, path[1:], pkg)
 }
+
+func (n *PkgNode) GetChild(path []string) *PkgNode {
+	return n.getChildHelp(path, path)
+}
+
+func (n *PkgNode) getChildHelp(path []string, wholePath []string) *PkgNode {
+	if len(path) == 0 {
+		return n.rewriteImports(strings.Join(wholePath, "/"))
+	}
+	nextChild := n.Children[path[0]]
+	if nextChild == nil {
+		return nil
+	}
+	return nextChild.getChildHelp(path[1:], wholePath)
+}
+
+func (n *PkgNode) rewriteImports(removePrefix string) *PkgNode {
+	out := &PkgNode{
+		Name:     n.Name,
+		Children: map[string]*PkgNode{},
+	}
+	for _, imp := range n.Imports {
+		out.Imports = append(out.Imports, imp[len(removePrefix)+1:])
+	}
+	for name, child := range n.Children {
+		out.Children[name] = child.rewriteImports(removePrefix)
+	}
+	return out
+}
