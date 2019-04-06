@@ -9,6 +9,7 @@ type PkgNode struct {
 	Name     string
 	Imports  []string
 	Children map[string]*PkgNode // segment => child node
+	Size     int
 }
 
 func (n *PkgNode) Print() {

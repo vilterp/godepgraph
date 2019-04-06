@@ -28,6 +28,7 @@ func (n *PkgNode) insertAtPath(b *Builder, path []string, pkg *build.Package) {
 	if len(path) == 0 {
 		return
 	}
+	size := len(pkg.GoFiles)
 	if len(path) == 1 {
 		if n.Children[path[0]] != nil {
 			n.Children[path[0]].Imports = b.importsForPkg(pkg)
@@ -37,6 +38,7 @@ func (n *PkgNode) insertAtPath(b *Builder, path []string, pkg *build.Package) {
 			Name:     path[0],
 			Imports:  b.importsForPkg(pkg),
 			Children: map[string]*PkgNode{},
+			Size:     size,
 		}
 		return
 	}
@@ -46,6 +48,7 @@ func (n *PkgNode) insertAtPath(b *Builder, path []string, pkg *build.Package) {
 			Name:     path[0],
 			Imports:  b.importsForPkg(pkg),
 			Children: map[string]*PkgNode{},
+			Size:     size,
 		}
 		n.Children[path[0]] = child
 	}
@@ -74,6 +77,7 @@ func (n *PkgNode) rewriteImports(removePrefix string) *PkgNode {
 	out := &PkgNode{
 		Name:     n.Name,
 		Children: map[string]*PkgNode{},
+		Size:     n.Size,
 	}
 	for _, imp := range n.Imports {
 		out.Imports = append(out.Imports, imp[len(removePrefix)+1:])
