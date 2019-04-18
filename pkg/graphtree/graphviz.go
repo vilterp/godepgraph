@@ -76,15 +76,6 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 	nodesByName := map[string]dot.Node{}
 	addNode(g, "", tree, nodesByName, 0)
 
-	//var nbn []string
-	//for n := range nodesByName {
-	//	nbn = append(nbn, n)
-	//}
-	//sort.Strings(nbn)
-	//for _, n := range nbn {
-	//	fmt.Println(n)
-	//}
-
 	if opts.NoEdges {
 		return g
 	}
@@ -107,47 +98,6 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 		}
 		g.Edge(from, to).Attr("id", fmt.Sprintf("%s->%s", edge.from, edge.to))
 	}
-
-	//node [shape="box",style="rounded,filled"]
-	//edge [arrowsize="0.5"]
-
-	//for _, pkgName := range pkgKeys {
-	//	pkg := pkgs[pkgName]
-	//	pkgId := getId(ids, pkgName)
-	//
-	//	if isIgnored(pkg) {
-	//		continue
-	//	}
-	//
-	//	var color string
-	//	switch {
-	//	case pkg.Goroot:
-	//		color = "palegreen"
-	//	case len(pkg.CgoFiles) > 0:
-	//		color = "darkgoldenrod1"
-	//	case isVendored(pkg.ImportPath):
-	//		color = "palegoldenrod"
-	//	default:
-	//		color = "paleturquoise"
-	//	}
-	//
-	//	fmt.Printf("%s [label=\"%s\" color=\"%s\" URL=\"%s\" target=\"_blank\"];\n", pkgId, pkgName, color, pkgURL(pkgName))
-	//
-	//	// Don't render imports from packages in Goroot
-	//	if pkg.Goroot && !*withGoroot {
-	//		continue
-	//	}
-	//
-	//	for _, imp := range getImports(pkg) {
-	//		impPkg := pkgs[imp]
-	//		if impPkg == nil || isIgnored(impPkg) {
-	//			continue
-	//		}
-	//
-	//		impId := getId(ids, imp)
-	//		fmt.Printf("%s -> %s;\n", pkgId, impId)
-	//	}
-	//}
 
 	return g
 }
