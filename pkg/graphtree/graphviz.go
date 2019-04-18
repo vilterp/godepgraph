@@ -151,3 +151,5 @@ func MakeGraph(tree *PkgNode, opts GraphvizOpts) *dot.Graph {
 
 	return g
 }
+
+func myUnusedFunc() {}
