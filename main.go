@@ -2,10 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"flag"
 	"fmt"
 	"go/build"
-	"log"
 	"os"
 	"strings"
 
