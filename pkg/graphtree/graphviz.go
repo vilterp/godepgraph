@@ -31,7 +31,7 @@ func addNode(g *dot.Graph, path string, node *PkgNode, nodesByName NodesByName, 
 			Attr("id", path)
 		nodesByName[path] = outNode
 	}
-	for _, child := range node.Children {
+	for _, child := range node.OrderedChildren() {
 		addNode(sg, path+"/"+child.Name, child, nodesByName, depth+1)
 	}
 }
